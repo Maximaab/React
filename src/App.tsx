@@ -1,7 +1,7 @@
 import './App.css';
-import OnOff from "./Components/onOff/OnOff";
 import {Accordion} from "./Accordion/Accordion";
 import {Rating} from "./Rating/Rating";
+import OnOff from "./Components/onOff/onOff";
 
 
 function App() {
