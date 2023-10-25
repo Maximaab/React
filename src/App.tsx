@@ -5,6 +5,7 @@ import {Rating} from "./Rating/Rating";
 
 
 function App() {
+    console.log('alalal')
   return (
       <div>
           <input type={"date"}/>
