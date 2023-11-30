@@ -12,7 +12,11 @@ function App() {
     const [ratingValue, setRatingValue] = useState<ValueNumberType>(1)
     const [accordionCollapset, setAccordionCollapset] = useState<boolean>(false)
     const [onOff, setOnOff] = useState<boolean>(false)
-    console.log('alalal')
+    console.log('alalal', accordionCollapset)
+
+
+
+    const handleChange = (collapsed: boolean) => setAccordionCollapset(collapsed)
   return (
       <div>
           <input type={"date"}/>
@@ -31,7 +35,11 @@ function App() {
           <div>
               <Rating value={ratingValue} onClick={setRatingValue}/>
               Article 1
-              <Accordion title={"Accordion title"} collapsed={accordionCollapset} onChange={()=>{setAccordionCollapset(!accordionCollapset)}}/>
+              <Accordion
+                  title={"Accordion title"}
+                  collapsed={accordionCollapset}
+                  onChange={handleChange}
+              />
               <Rating value={ratingValue} onClick={setRatingValue}/>
               Article 2
               <Accordion title={"Title of accordion"} collapsed={accordionCollapset} onChange={()=>{setAccordionCollapset(!accordionCollapset)}}/>

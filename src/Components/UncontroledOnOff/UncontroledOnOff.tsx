@@ -3,6 +3,7 @@ import {useState} from "react";
 type PropsType = {
     // on: boolean
     onChange:(on: boolean)=>void
+    defaultValue?:boolean
 }
 
 
@@ -10,7 +11,7 @@ type PropsType = {
 
 function OnOff(props:PropsType) {
 
-    let [on, setOn] = useState(false);
+    let [on, setOn] = useState(props.defaultValue ? props.defaultValue : false);
 
     const onStyle = {
         width: "30px",
