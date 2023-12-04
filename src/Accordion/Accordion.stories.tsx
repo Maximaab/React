@@ -18,10 +18,14 @@ export const FirstStory: Story = {
            setArgs({collapsed: value})
         }
 
+
+
         return <Accordion
             {...args}
             title='Test title'
             onChange={onCollapsedChange}
+            items={[{title:"Voktor", value:1},{title:"WANA", value:2},{title:"MAX", value:3},{title:"SANA", value:4}]}
+            onClick={()=>{}}
         />
     }
 

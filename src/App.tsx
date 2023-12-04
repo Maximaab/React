@@ -32,18 +32,18 @@ function App() {
           {/*    <UncontroledRating value={3}/>*/}
           {/*    <UncontroledRating value={3}/>*/}
           {/*</div>*/}
-          <div>
-              <Rating value={ratingValue} onClick={setRatingValue}/>
-              Article 1
-              <Accordion
-                  title={"Accordion title"}
-                  collapsed={accordionCollapset}
-                  onChange={handleChange}
-              />
-              <Rating value={ratingValue} onClick={setRatingValue}/>
-              Article 2
-              <Accordion title={"Title of accordion"} collapsed={accordionCollapset} onChange={()=>{setAccordionCollapset(!accordionCollapset)}}/>
-          </div>
+          {/*<div>*/}
+          {/*    <Rating value={ratingValue} onClick={setRatingValue}/>*/}
+          {/*    Article 1*/}
+          {/*    <Accordion*/}
+          {/*        title={"Accordion title"}*/}
+          {/*        collapsed={accordionCollapset}*/}
+          {/*        onChange={handleChange}*/}
+          {/*    />*/}
+          {/*    <Rating value={ratingValue} onClick={setRatingValue}/>*/}
+          {/*    Article 2*/}
+          {/*    <Accordion title={"Title of accordion"} collapsed={accordionCollapset} onChange={()=>{setAccordionCollapset(!accordionCollapset)}}/>*/}
+          {/*</div>*/}
       </div>
 
   );

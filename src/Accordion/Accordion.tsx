@@ -1,15 +1,22 @@
 import React, {ChangeEvent, useState, MouseEvent} from 'react';
+
+type BodyType = {
+    title:string
+    value:any
+}
+
 type AccordionType = {
     title:string
     collapsed:boolean
     onChange:(collapsed: boolean)=>void
-
+    items:BodyType[]
+    onClick:(value:string)=>void
 }
 export const Accordion = (props:AccordionType) => {
     return (
         <div>
             <AccordionTitle title={props.title} onChange={props.onChange}  collapsed={props.collapsed} />
-            {!props.collapsed &&  <AccordionBody/>}
+            {!props.collapsed &&  <AccordionBody items={props.items} onClick={()=>{props.onClick}}    />}
         </div>
     );
 };
@@ -37,24 +44,15 @@ function AccordionTitle(props:AccordionTitleType) {
     )
 }
 
-function AccordionBody() {
-
-    const [value, setValue] = useState<string>('')
-
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-
-        setValue(e.currentTarget.value)
-    }
+type AccordionBodyType = {
+    items:BodyType[]
+    onClick:(value:string)=>void
+}
+function AccordionBody(props:AccordionBodyType) {
 
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-
-
-            <input type="text" value={value} onChange={handleChange}/>
+            {props.items.map((el,index)=><li key={index} onClick={()=>{props.onClick(el.value)}}>{el.title}</li>)}
 
         </ul>
     )
