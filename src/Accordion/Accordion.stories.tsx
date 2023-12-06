@@ -25,7 +25,7 @@ export const FirstStory: Story = {
             title='Test title'
             onChange={onCollapsedChange}
             items={[{title:"Voktor", value:1},{title:"WANA", value:2},{title:"MAX", value:3},{title:"SANA", value:4}]}
-            onClick={()=>{}}
+            onClick={(value)=>{ alert(`AAAA ${value}`)}}
         />
     }
 

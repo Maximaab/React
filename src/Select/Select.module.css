@@ -1,0 +1,29 @@
+.select {
+ border: 1px solid #03081e;
+
+}
+
+.span {
+ display: inline-block;
+    min-width: 50px;
+    min-height: 25px;
+}
+
+.div {
+    display: none;
+    padding: 5px;
+    position: absolute;
+    border: 1px solid #a856e3;
+}
+.select.active .div {
+    display: block;
+}
+
+.item {
+
+}
+
+.item.selected {
+    background-color: blue;
+    color: white;
+}
