@@ -1,4 +1,10 @@
 .select {
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 5px;
+    display: inline-block;
+        min-height: 25px;
+    min-width: 100px;
  border: 1px solid #03081e;
 
 }
@@ -7,6 +13,7 @@
  display: inline-block;
     min-width: 50px;
     min-height: 25px;
+
 }
 
 .div {

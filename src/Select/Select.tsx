@@ -1,5 +1,5 @@
 import s from "./Select.module.css"
-import {useState} from "react";
+import {useState, KeyboardEvent} from "react";
 
 
 type BodyType = {
@@ -26,9 +26,17 @@ export const Select = (props: SelectType) => {
         onClickActiveHandler()
     }
 
+    const onKeyUpHandler = (e:KeyboardEvent<HTMLDivElement>)=>{
+        for (let i =0; i <props.items.length; i++) {
+            if (hovered === props.items[i].value) {
+                setHovered(props.items[i+1].value)
+                break
+            }
+        }
+    }
     return (
         <>
-            <div className={s.select + " " + (active ? s.active : " ")}>
+            <div className={s.select + " " + (active ? s.active : " ")} onKeyUp={onKeyUpHandler} tabIndex={0}>
                 <span className={s.span} onClick={onClickActiveHandler}>{SelectItem && SelectItem.title}</span>
                 {active &&
                     <div className={s.div}>
@@ -37,6 +45,7 @@ export const Select = (props: SelectType) => {
                             className={s.item + " " + (HoveredItem === el ? s.selected : " ")}
                             key={el.value}
                             onClick={()=>{onChangeValueHandler(el.value)}}
+
                         >{el.title}</div>)}
                     </div>
                 }
