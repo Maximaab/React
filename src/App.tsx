@@ -19,16 +19,16 @@ function App() {
     const handleChange = (collapsed: boolean) => setAccordionCollapset(collapsed)
   return (
       <div>
-          <input type={"date"}/>
-          <input checked={true} value={"yo"}/>
-          <div >
-              <UncontroledOnOff onChange={setOnOff} /> {setOnOff.toString()}
+          {/*<input type={"date"}/>*/}
+          {/*<input checked={true} value={"yo"}/>*/}
+          {/*<div >*/}
+          {/*    <UncontroledOnOff onChange={setOnOff} /> {setOnOff.toString()}*/}
               {/*<OnOff on={onOff} onChange={setOnOff}/>*/}
 
-          </div>
+          {/*</div>*/}
           {/*<div>*/}
-          {/*    <UncontroledAccordion title={"Menu"}/>*/}
-          {/*    <UncontroledAccordion title={"User"}/>*/}
+              <UncontroledAccordion title={"Menu"}/>
+              <UncontroledAccordion title={"User"}/>
           {/*    <UncontroledRating value={3}/>*/}
           {/*    <UncontroledRating value={3}/>*/}
           {/*</div>*/}

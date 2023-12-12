@@ -1,5 +1,5 @@
 import s from "./Select.module.css"
-import {useState, KeyboardEvent} from "react";
+import {useState, KeyboardEvent, useEffect} from "react";
 
 
 type BodyType = {
@@ -18,20 +18,32 @@ export const Select = (props: SelectType) => {
     const SelectItem = props.items.find(el => el.value === props.value)
     const HoveredItem = props.items.find(el => el.value === hovered)
 
+    useEffect(() => {
+        setHovered(props.value)
+    }, [props.value])
+
     const onClickActiveHandler = () => {
         setActive(!active)
     }
-    const onChangeValueHandler = (value:any) =>{
+    const onChangeValueHandler = (value: any) => {
         props.onChange(value)
         onClickActiveHandler()
     }
 
-    const onKeyUpHandler = (e:KeyboardEvent<HTMLDivElement>)=>{
-        for (let i =0; i <props.items.length; i++) {
-            if (hovered === props.items[i].value) {
-                setHovered(props.items[i+1].value)
-                break
+    const onKeyUpHandler = (e: KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp")
+            for (let i = 0; i < props.items.length; i++) {
+                if (props.items[i].value === hovered) {
+                    const PretendentElevent = e.key === "ArrowDown" ? props.items[i + 1] : props.items[i - 1]
+                    if (PretendentElevent) {
+                        props.onChange(PretendentElevent.value)
+                        break
+                    }
+
+                }
             }
+        if(e.key === "Enter" || e.key === "Escape") {
+            setActive(false)
         }
     }
     return (
@@ -41,10 +53,14 @@ export const Select = (props: SelectType) => {
                 {active &&
                     <div className={s.div}>
                         {props.items.map(el => <div
-                            onMouseEnter={()=>{setHovered(el.value)}}
+                            onMouseEnter={() => {
+                                setHovered(el.value)
+                            }}
                             className={s.item + " " + (HoveredItem === el ? s.selected : " ")}
                             key={el.value}
-                            onClick={()=>{onChangeValueHandler(el.value)}}
+                            onClick={() => {
+                                onChangeValueHandler(el.value)
+                            }}
 
                         >{el.title}</div>)}
                     </div>
