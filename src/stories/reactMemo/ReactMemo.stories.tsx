@@ -14,6 +14,7 @@ export const Ninestory: Story = {
         const [users, setUsers] = useState(["Oleg", "Ostap", "Anton", "Armagedon"])
         const [count, setCount] = useState(0)
 
+
         return <>
             <button onClick={() => setCount(count + 1)}>+</button>
             <ReactMemo
