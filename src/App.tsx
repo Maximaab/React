@@ -6,6 +6,7 @@ import {UncontroledAccordion} from "./UncontroledAccordion/UncontroledAccordion"
 import {UncontroledRating} from "./UncontroledRating/UncontroledRating";
 import {useState} from "react";
 import UncontroledOnOff from "./Components/UncontroledOnOff/UncontroledOnOff";
+import UseEffect from "./stories/useEffect/UseEffect";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           {/*    Article 2*/}
           {/*    <Accordion title={"Title of accordion"} collapsed={accordionCollapset} onChange={()=>{setAccordionCollapset(!accordionCollapset)}}/>*/}
           {/*</div>*/}
+          <UseEffect/>
       </div>
 
   );
